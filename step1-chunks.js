@@ -1,23 +1,25 @@
 var https = require('https');
 
 function getAndPrintHTMLChunks () {
-  var body = "";
+  //var body = "";
   var requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step1.html'
   };
   
-  https.get(requestOptions, function (response) {
+  https.get(requestOptions, function (response) { //asynchronous portion, GET takes a while to gather the info.
   response.setEncoding('utf8');
   response.on('data', function (data){
-     body += data;
+     //body += data;
     response.on("end", function() {
-      console.log(body);
+      console.log(data);
     })
 
     console.log("chunk Received. Length:", data.length);
   })
-  })}
+  })
+  return 'Dan' //This part is logged first > Synchronous workflow
+}
   console.log(getAndPrintHTMLChunks());
 
 

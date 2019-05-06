@@ -1,7 +1,7 @@
 var https = require('https');
 
 function getAndPrintHTML () {
-  const chunks = [];
+  var body = "";
   var requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html'
@@ -10,10 +10,10 @@ function getAndPrintHTML () {
   https.get(requestOptions, function (response) {
     response.setEncoding('utf8');
     response.on('data', function (data){
-      chunks.push(data);
+      body += data;
       response.on("end", function() {
       })
-      console.log(chunks + '\n');
+      console.log(body + '\n');
 
       console.log("Response stream complete");
     })
