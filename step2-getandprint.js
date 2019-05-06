@@ -1,7 +1,7 @@
 var https = require('https');
 
 function getAndPrintHTML () {
-  var body = "";
+  var body = ""; //Preferable to be a string not a variable, so you can JSON it later
   var requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html' //DIFFERENT WEBSITE without Pi Value.
